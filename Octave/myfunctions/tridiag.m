@@ -8,14 +8,12 @@ subd = SUBD_vector;
 maind = MAIND_vector;
 superd = SUPERD_vector;
 
-if length(subd) == length(maind) == length(superd)
+if length(subd) == length(maind) && length(maind) == length(superd)
     N = length(subd);
-end
-
 else
     error('input vectors should be the same size')
 end
-   
 
+MATRIX = spdiags([subd maind superd], [-1 0 1], N, N);
 
 end
